@@ -1,6 +1,6 @@
 # WorldCovr retention metrics dashboard
 
-This repository contains the code necessary to create a dashboard that displays customer retentions metrics and display results in a synthetic and visual manner.
+This repository contains the code necessary to create a dashboard that displays customer retentions metrics and results in a synthetic and visual manner.
 
 
 ## The dashboard
@@ -26,8 +26,8 @@ The app is freely hosted on Heroku and available via [this link](https://worldco
 ### Run the app locally
 
 1. Clone or download the repository `git clone https://github.com/jsga/WorldCovr_BI_public .`
-2. Copy the provided csv files in folder `data/`
-3. Make sure your terminal is located in the main folder of the app 
+2. Place the provided csv files in folder `data/`
+3. Make sure your terminal is located in the main folder of the app
 4. Create a Python3 virtualenv `virtualenv -p python3 venv`
 5. Activate the virtualenv `source venv/bin/activate`
 6. Install the requirements `pip install -r requirements.txt`
@@ -61,6 +61,6 @@ There are various **questions** that I believe they are not completely relevant 
 
 - Some rows, like _gender_, have a lot of missing values (61%). Can we find information from customers from somewhere else?
 - I did not consider the row _"status"_ in community_payout. I should find out more on the meaning of it.
-- Column "date_issued" in customer_policy indicated that worldcovr receives a payment. What then means date_priced?
+- Column "date_issued" in customer_policy indicates that Worldcovr receives a payment. What then means date_priced?
 - What happened in 2018 to gain so many customers at once?
 - Besides the region: is the subregion a relevant factor?
