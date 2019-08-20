@@ -2,6 +2,20 @@ import numpy as np
 import pandas as pd
 
 
+def data_preparation_simulated():
+    """
+    Load and pre-process the simulated data.
+    The data has been simulated to preserve the privacy of the users and Worldcover.
+    Any simmilarity with the real data is not intended at all
+    """
+
+    df_all = pd.read_csv('data/simulated_data_input.csv')
+
+    return df_all
+
+
+
+
 def data_preparation():
     """
     Load and pre-process the data
@@ -64,7 +78,8 @@ def data_preparation():
     df_trans = pd.merge(df_group, merged_ccc, how="right", on='customer_policy_id')
     # print('df_group shape:{} merged_ccc shape:{} merged df_trans shape:{}'.format(df_group.shape, merged_ccc.shape,df_trans.shape))
 
-    return communities, community_payouts, customers, customer_policies, policy_transactions, df_trans
+    #return communities, community_payouts, customers, customer_policies, policy_transactions, df_trans
+    return df_trans
 
 
 def set_diag2(df, axis_input=0, inplace=True):

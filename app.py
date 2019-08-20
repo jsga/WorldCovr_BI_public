@@ -13,7 +13,7 @@ import numpy as np
 
 from pages import overview, commentsConclusions, predictionModel
 from utils.utils_layout import Header
-from utils.utils_data import data_preparation, cohort_3way
+from utils.utils_data import data_preparation_simulated, cohort_3way
 from utils.utils_figures import produce_heatmap,produce_single_heatmap
 
 
@@ -22,7 +22,8 @@ from utils.utils_figures import produce_heatmap,produce_single_heatmap
 # ==========================
 
 # Load data once
-communities, community_payouts, customers, customer_policies, policy_transactions, df_all = data_preparation()
+#df_all = data_preparation() # Use this with real data
+df_all = data_preparation_simulated()
 
 ## DEFINE ALLOWED FILTERS HERE
 # Load groupping options. Dropdown filter is updated accordingly.
@@ -61,7 +62,7 @@ app.layout = html.Div(
 
 )
 
-#auth = dash_auth.BasicAuth(app,{'admin': '1234'}) # The password should not be here but OK for now.
+# auth = dash_auth.BasicAuth(app,{'admin': 'javier'}) # The password should not be here but OK for now.
 
 # Define fav icon
 @server.route('/favicon.ico')
@@ -140,14 +141,8 @@ def update_retention_table(group_value, filter_value, total_value, pivot_value):
         group_value = "no groupping"
 
     # Create cohort table
-    df = cohort_3way(df_all, mode=total_value,  index3=group_value, pivot_value = pivot_value, show_totals=True).fillna("")
+    df = cohort_3way(df_all, mode=total_value,  index3=group_value, pivot_value = pivot_value, show_totals=True).round(2).fillna("")
 
-    # Round if fraction
-    if total_value == "fraction":
-        df = df.round(2)  # TODO: Is this really working?
-
-    print('Updated dataframe: ')
-    print(df)
 
     # If its another file type: json.dumps(cleaned_df)
     return df.to_json(date_format='iso', orient='table')
@@ -232,6 +227,8 @@ def update_figure(input_data, display, group_value, filter_values,total_value, p
                 df.rename(columns = {"season":"season_first"},inplace=True)
             else:
                 df.rename(columns = {"season_first": "season"},inplace=True)
+
+
 
 
         return dash_table.DataTable(
