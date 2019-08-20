@@ -2,10 +2,13 @@
 
 This repository contains the code necessary to create a dashboard that displays customer retentions metrics and results in a synthetic and visual manner.
 
+Access the dashboard alive [here](https://worldcover-bi-public.herokuapp.com/).
+
+The dashboard contains simulated data and any resemblance with real data is not intended at all.
 
 ## The dashboard
 
-The dashboard is built using a Plotly-dash framework. Dash is a framework for building quick and good-looking analytical web applications. It is built on top of Flask, it can be easily customized and embedded anywhere.
+The dashboard is built using a Plotly-dash framework. Dash is a framework for building quick and good-looking analytical web applications. It is built on top of Flask, it can be easily customised and embedded anywhere.
 
 The app is structured as follows:
 
@@ -18,9 +21,9 @@ The app is structured as follows:
 
 
 
-### Access the dashboard online
+### Access the dashboard online [here](https://worldcover-bi-public.herokuapp.com/) 
 
-The app is freely hosted on Heroku and available via [this link](https://worldcovr-dashboard.herokuapp.com/). The username and password are provided privately by email. Please keep in mind the speed of the response might not be as fast as if the app was hosted on a premium service hosting. Heroku has been configured so that the dashboard re-builds automatically when the master branch is pushed.
+The app is freely hosted on Heroku and available via [this link](https://worldcover-bi-public.herokuapp.com/). Please keep in mind the speed of the response might not be as fast as if the app was hosted on a premium service hosting. Heroku has been configured so that the dashboard re-builds automatically when the master branch is pushed.
 
 
 ### Run the app locally
@@ -28,8 +31,8 @@ The app is freely hosted on Heroku and available via [this link](https://worldco
 1. Clone or download the repository `git clone https://github.com/jsga/WorldCovr_BI_public .`
 2. Place the provided csv files in folder `data/`
 3. Make sure your terminal is located in the main folder of the app
-4. Create a Python3 virtualenv `virtualenv -p python3 venv`
-5. Activate the virtualenv `source venv/bin/activate`
+4. Create a Python3 virtualenv `virtualenv -p python3 .venv`
+5. Activate the virtualenv `source .venv/bin/activate`
 6. Install the requirements `pip install -r requirements.txt`
 7. Run the app: `python3 app.py`
 8. Open your browser and visit [http://127.0.0.1:8050/](http://127.0.0.1:8050/). Enjoy!
@@ -61,6 +64,6 @@ There are various **questions** that I believe they are not completely relevant 
 
 - Some rows, like _gender_, have a lot of missing values (61%). Can we find information from customers from somewhere else?
 - I did not consider the row _"status"_ in community_payout. I should find out more on the meaning of it.
-- Column "date_issued" in customer_policy indicates that Worldcovr receives a payment. What then means date_priced?
+- Column "date_issued" in customer_policy indicates that Worldcover receives a payment. What then means date_priced?
 - What happened in 2018 to gain so many customers at once?
 - Besides the region: is the subregion a relevant factor?
